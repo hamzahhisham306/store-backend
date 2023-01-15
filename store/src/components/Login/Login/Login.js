@@ -1,7 +1,7 @@
 import React from 'react'
 import './Login.css'
 import login from '../../../assets/rocket.png';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import base24 from 'base-64';
 import cookies from 'react-cookies';
@@ -37,7 +37,7 @@ function Login() {
          <input type='text' required id='username'/><br/>
          <label>Password</label><br/>
          <input type='password' required id='password'/><br/>
-         {/* <p>if you do not have account <Link to='/signup'>Sign Up!</Link></p> */}
+         <p>if you do not have account <Link to='/signup'>Sign Up!</Link></p>
          <button type='submit'>LOGIN</button>
          <button type='reset' className='reset'>Reset</button>
        </form>

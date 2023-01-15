@@ -1,12 +1,14 @@
 import './App.css';
-import Login from './components/Login/Login/Login';
+import Nav from './components/Login/Navbar/Nav';
+import Product from './components/Product/Product';
 
 
 function App() {
   return (
-    <div className='App'>
-       jamza
-     </div>
+    <>
+       <Nav/>
+       <Product/>
+     </>
   );
 }
 
