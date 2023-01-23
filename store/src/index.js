@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Login from './components/Login/Login/Login';
 import App from './App';
+import Single from './store/single';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -20,6 +21,7 @@ root.render(
     <Route path="/" element={<App/>}/>
     <Route path="/login"  element={<Login/>}/>
     <Route path="/signup"  element={<Register/>}/>
+    <Route path="/single/:id"element={<Single/>}/>
       </Routes>
   </BrowserRouter>
   </Provider>

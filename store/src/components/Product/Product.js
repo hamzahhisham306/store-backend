@@ -41,7 +41,7 @@ function Product() {
       })} 
     </ul>
     <div className='cards'>
-        {products&&products.map((product,index)=><Card imageUrl={product.imageUrl} title={product.brandName} description={product.name} price={product.price} key={index}/>)}
+        {products&&products.map((product,index)=><Card imageUrl={product.imageUrl} title={product.brandName} description={product.name} price={product.price} key={index} id={product.id}/>)}
     </div>
     </div>
   )
