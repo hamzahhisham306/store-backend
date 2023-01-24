@@ -17,19 +17,24 @@ const cart = createSlice({
        const check = state.cartOrders.find(item=>item?.name===action.payload.name);
        if(check){
         const index = state.cartOrders.findIndex(item=>item?.name===action.payload.name);
-        state.cartOrders[index].nums=state.cartOrders[index].nums+1;
+        state.cartOrders[index].nums+=1;
        }
        else{
         state.cartOrders.push({
           name:action.payload.name,
           nums:1,
-          salary:action.payload.salary
+          salary:action.payload.salary,
+          imageUrl:action.payload.imageUrl
         });
        }
+    },
+    increaseOrder(state, action){
+      const index = state.cartOrders.findIndex((item)=>item?.name===action.payload.name);
+      state.cartOrders[index].nums-=1;
     }
   }
 });
 
 export const statecart = (state) => state.cart;
-export const { increase, decrease, setOrders } = cart.actions;
+export const { increase, decrease, setOrders ,increaseOrder} = cart.actions;
 export default cart.reducer;

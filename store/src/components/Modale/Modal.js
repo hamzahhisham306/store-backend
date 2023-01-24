@@ -2,22 +2,51 @@ import React from 'react'
 import './modal.css';
 import { setClose, stateAuth } from '../../store/auth';
 import { statecart } from '../../store/cart';
+import { increase, setOrders , increaseOrder} from '../../store/cart';
+
 import { useSelector, useDispatch } from 'react-redux'
 function Modal() {
     const dispatch = useDispatch();
     const stateShow = useSelector(stateAuth);
-    const arrayOrders= useSelector(statecart);
+    const arrayOrders = useSelector(statecart);
+    const handlerBuy = (name, salary, imageUrl) => {
+        dispatch(increase());
+        dispatch(setOrders({ name: name, salary: salary, imageUrl: imageUrl }));
+    }
     return (
         <div>
             {stateShow.showModal && (
                 <div className='modal'>
                     <div className='modal-content'>
-                        <div>
-                        {arrayOrders&&arrayOrders.cartOrders.map((item, index)=>{
-                            return (
-                                <li key={index}>{item.name} X {item.nums} <span>{item.salary}</span></li>
-                            )
-                        })}
+                        <div className='shopping-cart'>
+                            <h2>Your Shooping Cart</h2>
+                            <table>
+                                <thead>
+                                    <th></th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>number</th>
+                                    <th>Add more</th>
+                                </thead>
+                                {arrayOrders && arrayOrders.cartOrders.map((item, index) => {
+                                    return (
+                                        <tbody>
+
+                                            <td><img src={`https://${item.imageUrl}`} width='130' height='120' alt='pho' /></td>
+                                            <td>{item.name}</td>
+                                            <td>$ {item.salary}</td>
+                                            <td>{item.nums}</td>
+                                            <td><button className='plus' onClick={() => handlerBuy(item.name, item.salary)}>+</button>
+                                                <button className='minus' onClick={()=>dispatch(increaseOrder({name:item.name}))}>-</button>
+                                             </td>
+                                        </tbody>
+
+                                    )
+                                })}
+                                </table>
+                                <h3>Total price = $ {arrayOrders&&arrayOrders.cartOrders.map((item)=>{
+                                    return item.salary*item.nums;
+                                }).reduce((a,b)=>a+b)}</h3>
                         </div>
                         <button onClick={() => dispatch(setClose())} className='modal-close'>Close</button>
                     </div>
