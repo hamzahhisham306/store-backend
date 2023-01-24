@@ -23,7 +23,8 @@ const cart = createSlice({
         state.cartOrders.push({
           name:action.payload.name,
           nums:1,
-          salary:action.payload.salary
+          salary:action.payload.salary,
+          imageUrl:action.payload.imageUrl
         });
        }
     }
