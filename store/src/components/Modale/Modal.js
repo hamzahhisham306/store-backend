@@ -2,7 +2,7 @@ import React from 'react'
 import './modal.css';
 import { setClose, stateAuth } from '../../store/auth';
 import { statecart } from '../../store/cart';
-import { increase, setOrders } from '../../store/cart';
+import { increase, setOrders , increaseOrder} from '../../store/cart';
 
 import { useSelector, useDispatch } from 'react-redux'
 function Modal() {
@@ -36,7 +36,9 @@ function Modal() {
                                             <td>{item.name}</td>
                                             <td>$ {item.salary}</td>
                                             <td>{item.nums}</td>
-                                            <td><button className='plus' onClick={() => handlerBuy(item.name, item.salary)}>+</button></td>
+                                            <td><button className='plus' onClick={() => handlerBuy(item.name, item.salary)}>+</button>
+                                                <button className='minus' onClick={()=>dispatch(increaseOrder({name:item.name}))}>-</button>
+                                             </td>
                                         </tbody>
 
                                     )
