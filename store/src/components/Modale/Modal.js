@@ -2,7 +2,7 @@ import React from 'react'
 import './modal.css';
 import { setClose, stateAuth } from '../../store/auth';
 import { statecart } from '../../store/cart';
-import { increase, setOrders , increaseOrder} from '../../store/cart';
+import { increase, setOrders , increaseOrder, decrease} from '../../store/cart';
 
 import { useSelector, useDispatch } from 'react-redux'
 function Modal() {
@@ -13,6 +13,12 @@ function Modal() {
         dispatch(increase());
         dispatch(setOrders({ name: name, salary: salary, imageUrl: imageUrl }));
     }
+    const handlerCart=(item)=>{
+        dispatch(decrease());
+        dispatch(increaseOrder({name:item.name}))
+    }
+    const classMinu=arrayOrders.start<=0?'minus_zero':'minus';
+
     return (
         <div>
             {stateShow.showModal && (
@@ -37,7 +43,7 @@ function Modal() {
                                             <td>$ {item.salary}</td>
                                             <td>{item.nums}</td>
                                             <td><button className='plus' onClick={() => handlerBuy(item.name, item.salary)}>+</button>
-                                                <button className='minus' onClick={()=>dispatch(increaseOrder({name:item.name}))}>-</button>
+                                                <button className={classMinu} onClick={()=>handlerCart(item)}>-</button>
                                              </td>
                                         </tbody>
 
