@@ -35,6 +35,7 @@
 }
 .modal .plus{
     font-size: 20px;
+    cursor: pointer;
     text-align: center;
     padding: 12px;
     background-color: brown;
@@ -52,6 +53,23 @@
 }
 .minus{
     background-color: black;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    margin-left: 15px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.minus_zero{
+    pointer-events: none;
+    background-color: black;
+    cursor: pointer;
     font-size: 20px;
     text-align: center;
     padding: 12px;

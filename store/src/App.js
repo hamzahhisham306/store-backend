@@ -5,12 +5,14 @@ import Product from './components/Product/Product';
 
 
 function App() {
+
+
   return (
     <>
-       <Nav/>
-       <Product/>
-       <Modal/>
-     </>
+      <Nav />
+      <Product />
+      <Modal />
+    </>
   );
 }
 
