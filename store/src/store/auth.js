@@ -5,6 +5,7 @@ const auth = createSlice({
    initialState:{
     isLogin:false,
     showModal:false,
+    showForm:false
    },
    reducers:{
      setLogin(state){
@@ -18,10 +19,16 @@ const auth = createSlice({
     },
     setClose(state){
       state.showModal=false
+    },
+    setShowForm(state){
+      state.showForm=true
+    },
+    setHiddenForm(state){
+      state.showForm=false
     }
    }
 });
 
 export  const stateAuth=(state)=>state.auth;
-export const {setLogin, setLogout, setShow, setClose}=auth.actions;
+export const {setLogin, setLogout, setShow, setClose, setShowForm, setHiddenForm}=auth.actions;
 export default auth.reducer;

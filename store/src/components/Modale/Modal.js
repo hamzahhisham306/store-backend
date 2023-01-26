@@ -1,6 +1,6 @@
 import React from 'react'
 import './modal.css';
-import { setClose, stateAuth } from '../../store/auth';
+import { setClose, stateAuth, setShowForm } from '../../store/auth';
 import { statecart } from '../../store/cart';
 import { increase, setOrders , increaseOrder, decrease} from '../../store/cart';
 
@@ -18,7 +18,10 @@ function Modal() {
         dispatch(increaseOrder({name:item.name}))
     }
     const classMinu=arrayOrders.start<=0?'minus_zero':'minus';
-
+   const handlerOrder=()=>{
+    dispatch(setShowForm());
+    dispatch(setClose());
+   }
     return (
         <div>
             {stateShow.showModal && (
@@ -46,15 +49,16 @@ function Modal() {
                                                 <button className={classMinu} onClick={()=>handlerCart(item)}>-</button>
                                              </td>
                                         </tbody>
-
                                     )
                                 })}
                                 </table>
                                 <h3>Total price = $ {arrayOrders&&arrayOrders.cartOrders.map((item)=>{
                                     return item.salary*item.nums;
                                 }).reduce((a,b)=>a+b)}</h3>
+                                <button className='sent-order' onClick={()=>handlerOrder()}>sent Order</button>
                         </div>
                         <button onClick={() => dispatch(setClose())} className='modal-close'>Close</button>
+
                     </div>
                 </div>
             )}
