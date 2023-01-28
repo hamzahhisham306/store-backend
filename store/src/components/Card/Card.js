@@ -5,9 +5,9 @@ import { increase,setOrders } from '../../store/cart';
 import { Link } from 'react-router-dom';
 const Card = ({ imageUrl, title, description, price, id }) => {
     const dispatch = useDispatch();
-    const handlerBuy = (name, salary, imageUrl) => {
+    const handlerBuy = (name, salary, imageUrl, id) => {
         dispatch(increase());
-        dispatch(setOrders({name:name, salary:salary, imageUrl:imageUrl}));
+        dispatch(setOrders({name:name, salary:salary, imageUrl:imageUrl , id:id}));
     }
     return (
         <div className="card" >
@@ -17,7 +17,7 @@ const Card = ({ imageUrl, title, description, price, id }) => {
                 <p className="card-description">{description}</p>
                 <div className='info-card'>
                     <h2 className='price'>$ {price}</h2>
-                    <button onClick={()=>handlerBuy(title, price, imageUrl)}>Buy Now</button>
+                    <button onClick={()=>handlerBuy(title, price, imageUrl, id)}>Buy Now</button>
                 </div>
             </div>
         </div>

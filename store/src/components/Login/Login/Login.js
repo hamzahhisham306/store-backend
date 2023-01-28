@@ -33,7 +33,7 @@ function Login() {
         console.log(res.data)
         cookies.save('username', res.data.username);
         cookies.save('token', res.data.token);
-
+        cookies.save('userId', res.data.id);
       }).catch((err) => console.log(err | err.message));
       console.log(res.data);
     } catch (error) {

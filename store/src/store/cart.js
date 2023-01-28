@@ -21,6 +21,7 @@ const cart = createSlice({
        }
        else{
         state.cartOrders.push({
+          id:action.payload.id,
           name:action.payload.name,
           nums:1,
           salary:action.payload.salary,
@@ -31,10 +32,14 @@ const cart = createSlice({
     increaseOrder(state, action){
       const index = state.cartOrders.findIndex((item)=>item?.name===action.payload.name);
       state.cartOrders[index].nums-=1;
+    },
+    setEmptyArray(state){
+      state.cartOrders=[];
+      state.start=0;
     }
   }
 });
 
 export const statecart = (state) => state.cart;
-export const { increase, decrease, setOrders ,increaseOrder} = cart.actions;
+export const { increase, decrease, setOrders ,increaseOrder ,setEmptyArray} = cart.actions;
 export default cart.reducer;

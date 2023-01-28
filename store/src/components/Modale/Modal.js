@@ -39,7 +39,7 @@ function Modal() {
                                 </thead>
                                 {arrayOrders && arrayOrders.cartOrders.map((item, index) => {
                                     return (
-                                        <tbody>
+                                        <tbody key={index}>
 
                                             <td><img src={`https://${item.imageUrl}`} width='130' height='120' alt='pho' /></td>
                                             <td>{item.name}</td>
@@ -52,7 +52,7 @@ function Modal() {
                                     )
                                 })}
                                 </table>
-                                <h3>Total price = $ {arrayOrders&&arrayOrders.cartOrders.map((item)=>{
+                                <h3>Total price = $ {arrayOrders&&arrayOrders?.cartOrders?.map((item)=>{
                                     return item.salary*item.nums;
                                 }).reduce((a,b)=>a+b)}</h3>
                                 <button className='sent-order' onClick={()=>handlerOrder()}>sent Order</button>
