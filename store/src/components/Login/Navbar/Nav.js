@@ -22,7 +22,7 @@ function Nav() {
         <li>Home</li>
         <li>Categroies</li>
         <li onClick={()=>dispatch(setShow())}>About</li>
-        <li className='Cart' onClick={()=>dispatch(setShow())}>Cart <span>{State.start}</span></li>
+        <li className='Cart' onClick={()=>dispatch(setShow())}>Cart <span>{State?.start}</span></li>
         <li onClick={()=>handlerLogut()}>Log out</li>
       </ul>
       <img src={boot} alt='boot' width='100' height='100' />

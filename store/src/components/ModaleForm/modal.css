@@ -82,3 +82,31 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+
+label{
+    display: block;
+}
+input{
+    font-size: 25px;
+    padding: 5px;
+    outline: none;
+    margin: 10px auto;
+}
+h2{
+    padding-bottom: 20px;
+    text-align: center;
+}
+.confirm{
+    padding: 13px;
+    letter-spacing: 1.5px;
+    color: #fff;
+    background-color: brown;
+    cursor: pointer;
+    margin-top: 30px;
+    border: none;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
